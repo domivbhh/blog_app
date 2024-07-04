@@ -15,7 +15,13 @@ const signInController=async(req,res)=>{
             console.log(verifyPassword)
             if(verifyPassword){
               const respdata = await User.find({ email }).select("-password");
-              res.status(200).json({ data: respdata });
+              
+              //creating jwt token
+              const token=jwt.sign({id:user[0]._id},process.env.JWT_SECRET,{expiresIn:"3d"})
+              res.cookie("jwt", token).status(200).json({ data: respdata });
+            }
+            else{
+              res.status(401).json({data:'wrong password'})
             }
           }}
         }
@@ -47,4 +53,15 @@ const signUpController = async (req,res) => {
 
 
 
-module.exports={signInController,signUpController}
+const logOutController=async(req,res)=>{
+  try {
+      res.clearCookie("jwt",{sameSite:'none',secure:true}).status(200).json({data:"user logout successfully"})
+  } 
+  catch (error) {
+    res.status(500).json({data:'logout failed'})
+  }
+}
+
+
+
+module.exports={signInController,signUpController,logOutController}

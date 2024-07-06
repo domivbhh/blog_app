@@ -54,11 +54,7 @@ const Home = () => {
 
       {posts.length>0 &&
         posts && posts.map((ele) => <HomePost items={ele} />)}
-        
-        <div>
-          <h2 className="font-bold text-2xl text-center mt-60">
-            No results found</h2>
-        </div>
+       
     
       <Footer />
     </div>

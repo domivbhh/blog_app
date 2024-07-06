@@ -8,9 +8,7 @@ import { useNavigate } from 'react-router-dom';
 
 const HomePost = ({items}) => {
 const navigate=useNavigate()
-  return !localStorage.getItem("user") ? (
-    <FailLogin />
-  ) : items.title ? (
+  return items.title &&
     <div className='cursor-pointer' onClick={()=>navigate(`/posts/post/${items._id}`)}>
       <div className="w-full flex flex-row justify-evenly mt-5 p-5 space-x-4">
         {/* //left */}
@@ -33,7 +31,7 @@ const navigate=useNavigate()
         </div>
       </div>
     </div>
-  ) : "";
+
 }
 
 export default HomePost

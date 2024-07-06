@@ -81,7 +81,7 @@ const Navbar = () => {
             </h3>
 
             <div>
-              {user ? (
+              {localStorage.getItem('user') ? (
                 <h2 onClick={handleLogout} className="cursor-pointer">
                   Logout
                 </h2>

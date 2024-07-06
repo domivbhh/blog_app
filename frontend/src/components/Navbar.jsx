@@ -11,7 +11,7 @@ import { removeUser } from '../store/userSlice';
 
 let user=true
 const Navbar = () => {
-  const [show,setShow]=useState(true)
+  const [show,setShow]=useState(false)
   const navigate=useNavigate()
   const [error, setError] = useState("");
   const dispatch=useDispatch()

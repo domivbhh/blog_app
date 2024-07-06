@@ -34,7 +34,7 @@ const Navbar = () => {
           localStorage.removeItem("userId");
           localStorage.removeItem("username");
      dispatch(removeUser())
-     navigate('/login')
+     navigate('/')
      toast.success('Logout success')
    } catch (error) {
      console.log(error);

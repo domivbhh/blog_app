@@ -8,6 +8,7 @@ import { useSelector } from "react-redux";
 import { useNavigate, useParams } from 'react-router-dom'
 import { url } from '../constants'
 import toast from 'react-hot-toast'
+import FailLogin from './FailLogin'
 
 
 const PostDetails = () => {
@@ -213,7 +214,7 @@ const PostDetails = () => {
       <Footer />
     </div>:
     <div>
-      <h1 className='text-2xl text-center'>No data found</h1>
+      <h1 className='text-2xl text-center'>Loading results....</h1>
     </div>
   );
 }

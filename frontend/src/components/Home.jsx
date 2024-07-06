@@ -1,4 +1,4 @@
-import React, { useEffect, useState } from 'react'
+import React, { useEffect, useRef, useState } from 'react'
 import Navbar from './Navbar'
 import Footer from './Footer'
 import HomePost from './HomePost';
@@ -19,6 +19,8 @@ const Home = () => {
    const navigate=useNavigate()
    const {search}=useLocation()
    const queries=search ? search: '' 
+   const[show,setShow]=useState(false)
+   let a=useRef()
  
 
 
@@ -45,17 +47,29 @@ const Home = () => {
 
    useEffect(()=>{
       fetchDatas()
+      a.current=setTimeout(()=>{
+          setShow(!show)
+      },4000)
+      return ()=>{
+         clearInterval(a.current)
+      }
    },[queries])
+
+
 
 
   return (
     <div className="px-4 md:px-[20px]">
       <Navbar />
 
-      {posts.length>0 &&
-        posts && posts.map((ele) => <HomePost items={ele} />)}
-       
-    
+      {posts.length > 0 ? (
+        posts && posts.map((ele) => <HomePost items={ele} />)
+      ) : (
+        <div>
+          <h1 className="text-lg text-center font-bold mt-5">{show ?'No data Found':'Loading Results'}</h1>
+        </div>
+      )}
+
       <Footer />
     </div>
   );

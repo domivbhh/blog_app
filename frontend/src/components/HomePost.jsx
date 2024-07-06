@@ -8,7 +8,7 @@ import { useNavigate } from 'react-router-dom';
 
 const HomePost = ({items}) => {
 const navigate=useNavigate()
-  return items.title ?
+  return (items.title &&
     (<div className='cursor-pointer' onClick={()=>navigate(`/posts/post/${items._id}`)}>
       <div className="w-full flex flex-row justify-evenly mt-5 p-5 space-x-4">
         {/* //left */}
@@ -30,12 +30,8 @@ const navigate=useNavigate()
           <p className="text-sm md:text-lg w-full">{items.desc}</p>
         </div>
       </div>
-    </div>):(
-      <div>
-        <h1 className='text-lg text-center font-bold'>No data Found</h1>
-      </div>
-    )
-
+    </div>)
+  )
 }
 
 export default HomePost

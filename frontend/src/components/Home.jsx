@@ -49,7 +49,7 @@ const Home = () => {
       fetchDatas()
       a.current=setTimeout(()=>{
           setShow(!show)
-      },7000)
+      },15000)
       return ()=>{
          clearInterval(a.current)
       }

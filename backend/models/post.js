@@ -8,7 +8,7 @@ const postSchema = new mongoose.Schema(
       required: true,
       minlength: 3,
     },
-    description: {
+    desc: {
       type: String,
       required: true,
       uniques: true,
@@ -16,6 +16,8 @@ const postSchema = new mongoose.Schema(
     photo: {
       type: String,
       required: false,
+      default:
+        "https://contenthub-static.grammarly.com/blog/wp-content/uploads/2019/08/August-blog-header-Amplification-437x233.png",
     },
     username: {
       type: String,
@@ -25,13 +27,13 @@ const postSchema = new mongoose.Schema(
       type: String,
       required: true,
     },
-    categories:{
-        type:Array,
-        required:false
-    }
+    categories: {
+      type: Array,
+      required: false,
+    },
   },
   { timestamps: true }
 );
 
-const Post = mongoose.model("Post", postSchema);
+const Post = mongoose.model("post", postSchema);
 module.exports = Post;

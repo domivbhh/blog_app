@@ -11,6 +11,9 @@ import PostDetails from './pages/PostDetails.jsx'
 import CreatePost from './pages/CreatePost.jsx'
 import EditPost from './pages/EditPost.jsx'
 import Profile from './pages/Profile.jsx'
+import { Toaster } from "react-hot-toast";
+import { Provider } from "react-redux";
+import store from './store/store.js'
 
 
 const router=createBrowserRouter([
@@ -55,7 +58,10 @@ const router=createBrowserRouter([
 ])
 
 ReactDOM.createRoot(document.getElementById('root')).render(
-  <React.StrictMode>
+    <>
+    <Toaster/>
+    <Provider store={store}>
     <RouterProvider router={router}/>
-  </React.StrictMode>,
+    </Provider>
+    </>
 )

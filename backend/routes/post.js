@@ -8,7 +8,7 @@ const verifyToken = require("../middleware/verifyToken.js");
 router.post("/create", verifyToken, createPostController);
 
 //get post route handler
-router.get("/", verifyToken, getPostController);
+router.get("/", getPostController);
 
 //get user post route handler
 router.get("/user/:id", verifyToken, getUserPostController);
@@ -20,7 +20,7 @@ router.delete("/:id", verifyToken, deletePostController);
 router.put("/:id", verifyToken, updatePostController);
 
 //route for get singlepost
-router.get("/posts/:id", verifyToken, getsinglePostController);
+router.get("/posts/:id", getsinglePostController);
 
 
 

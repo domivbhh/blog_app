@@ -1,14 +1,24 @@
 import React from 'react'
 import { useSelector } from "react-redux";
+import { useNavigate } from 'react-router-dom';
+import { url } from '../constants';
+
+
 
 const Profilepost = ({data}) => {
   
    const { user } = useSelector((state) => state.user);
    const { username, email } = user;
+  const navigate=useNavigate()
+
+  // const handlePost=()=>{
+  //   navigate(`posts/post/${data._id}`)
+  // }
+
   return !localStorage.getItem("user") ? (
     <FailLogin />
   ) : (  
-       <div className="md:w-[660px]">
+       <div className="md:w-[660px] cursor-pointer">
       <div className="w-full flex flex-row justify-between mt-5 p-5 space-x-4">
         {/* //left */}
         <div className="w-[30%] h-[200px] mt-5 flex justify-center items-center">

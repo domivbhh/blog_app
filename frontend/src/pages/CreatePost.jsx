@@ -62,6 +62,13 @@ const CreatePost = () => {
            body: JSON.stringify(post)
          });
          const resp = await datas.json();
+         setCat('')
+         setTitle('')
+         setDesc('')
+         setCats('')
+         navigate('/')
+         toast.success(resp.data);
+
        } catch (error) {
          toast.error(error.message);
        }

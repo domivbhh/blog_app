@@ -7,6 +7,7 @@ import { url } from '../constants';
 const Comment = (props) => {
   const{data,handleCommentEdit}=props
   const{comment}=data
+  console.log(data)
 
 
       const handleCommentDelete=async()=>{

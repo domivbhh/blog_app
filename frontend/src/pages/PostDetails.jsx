@@ -73,7 +73,7 @@ const PostDetails = () => {
   const handleAddComment=async()=>{
     const post={
       comment,
-      userId:data.userId,
+      userId:localStorage.getItem('userId'),
       postId:params.id,
       author:localStorage.getItem('username')
     }
@@ -105,8 +105,8 @@ const PostDetails = () => {
          const datas = {
            comment,
            postId: params.id,
-           userId: data.userId,
-           author: data.username,
+           userId: localStorage.getItem('userId'),
+           author: localStorage.getItem('username'),
          };
       try {
         const fileUpload = await fetch(`${url}/comment/${id}`, {
@@ -117,7 +117,8 @@ const PostDetails = () => {
           },
           body: JSON.stringify(datas),
         });
-        console.log(fileUpload)
+        setComment('')
+        toast.success('edited sucess')
       } catch (err) {
         console.log(err.message);
       }

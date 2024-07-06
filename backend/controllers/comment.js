@@ -59,7 +59,7 @@ const getPostCommentController = async (req, res) => {
   const { id } = req.params;
   try {
     if (id) {
-      const post = await Post.find({ postId: id });
+      const post = await Comment.find({ postId: id });
       res.status(200).json({ data: post });
     }
   } catch (error) {

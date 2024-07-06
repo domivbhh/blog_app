@@ -47,6 +47,7 @@ const Profile = () => {
 
   useEffect(()=>{
       fetchUserPost()
+      setUserName(localStorage.getItem('username'))
   },[])
 
   const handleDelete=async()=>{

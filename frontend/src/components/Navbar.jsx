@@ -55,7 +55,7 @@ const Navbar = () => {
         <Link to={"/"}>Blog Market</Link>
       </h1>
       <div className="flex justify-center items-center space-x-0 ml-4">
-        <p className='cursor-pointer' onClick={handleSearch}>
+        <p className="cursor-pointer" onClick={handleSearch}>
           <BsSearch />
         </p>
         <input
@@ -63,7 +63,7 @@ const Navbar = () => {
           placeholder="search a post"
           className="outline-none px-3 min-h-[3vh]"
           value={prompt}
-          onChange={(e)=>setPrompt(e.target.value)}
+          onChange={(e) => setPrompt(e.target.value)}
         />
       </div>
 
@@ -81,7 +81,7 @@ const Navbar = () => {
             </h3>
 
             <div>
-              {localStorage.getItem('user') ? (
+              {localStorage.getItem("user") ? (
                 <h2 onClick={handleLogout} className="cursor-pointer">
                   Logout
                 </h2>
@@ -110,14 +110,14 @@ const Navbar = () => {
               </h3>
             )}
 
-            {user ? (
+            {localStorage.getItem("user") ? (
               <div className="flex gap-y-3 justify-start flex-col md:flex-row px-2">
                 <h3>
                   <Link to={"/profile/:id"}>Profile</Link>
                 </h3>
 
                 <h3 className="">
-                  {user ? (
+                  {localStorage.getItem("user") ? (
                     <h3 onClick={handleLogout}>Logout</h3>
                   ) : (
                     <Link to={"/login"}>Login</Link>

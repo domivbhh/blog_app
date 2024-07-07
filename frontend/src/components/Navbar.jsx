@@ -66,7 +66,6 @@ const Navbar = () => {
           onChange={(e) => setPrompt(e.target.value)}
         />
       </div>
-
       <div className="flex-col gap-y-1 md:gap-y-0 md:flex-row items-center justify-center -space-x-1 md:space-x-4 hidden md:flex">
         {user && (
           <h3>
@@ -98,11 +97,12 @@ const Navbar = () => {
           </h3>
         )}
       </div>
+      //mobile navbar
       <div className="md:hidden mt-0 absolute right-9">
         <FaBars className="" onClick={() => setShow(!show)} />
         {show ? (
           <div className="bg-black rounded-lg my-2 text-white flex flex-col absolute -ml-4  justify-start gap-y-4">
-            {user && (
+            {localStorage.getItem("user") && (
               <h3>
                 <Link to={"/write"} className="px-2">
                   Write

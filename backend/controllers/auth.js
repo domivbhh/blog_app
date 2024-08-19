@@ -17,7 +17,7 @@ const signInController=async(req,res)=>{
               const respdata = await User.find({ email }).select("-password");
               
               //creating jwt token
-              const token=jwt.sign({id:user[0]._id},process.env.JWT_SECRET,{expiresIn:"3d"})
+              const token=jwt.sign({id:user[0]._id},'dominar.400',{expiresIn:"3d"})
               
               res
               .status(200)

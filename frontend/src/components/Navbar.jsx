@@ -97,7 +97,6 @@ const Navbar = () => {
           </h3>
         )}
       </div>
-      //mobile navbar
       <div className="md:hidden mt-0 absolute right-9">
         <FaBars className="" onClick={() => setShow(!show)} />
         {show ? (

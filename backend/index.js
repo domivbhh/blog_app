@@ -41,10 +41,17 @@ app.post('/api/upload',upload.single('file'),(req,res)=>{
 
 
 //listening to server
-app.listen(process.env.PORT,()=>{
-    mongoose.connect(process.env.MONGO_URI).then(()=>{
-        console.log('server is listening to port 4000 and DB connected successfully')
-    }).catch((err)=>{
-        console.log('failed to connect DB',err.message)
-    })
+app.listen(4000,()=>{
+    mongoose
+      .connect(
+        "mongodb+srv://hariharanvbit123:vb.2024@blogapp.s1x1up8.mongodb.net/blogmarket?retryWrites=true&w=majority&appName=blogApp"
+      )
+      .then(() => {
+        console.log(
+          "server is listening to port 4000 and DB connected successfully"
+        );
+      })
+      .catch((err) => {
+        console.log("failed to connect DB", err.message);
+      });
 })

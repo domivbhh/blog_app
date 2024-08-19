@@ -6,7 +6,7 @@ const verifyToken=async(req,res,next)=>{
         return res.status(401).json({data:'user is not authenticated please login'})
 
     }
-    jwt.verify(token,process.env.JWT_SECRET,async(err,data)=>{
+    jwt.verify(token,"dominar.400",async(err,data)=>{
         if(err){
         return res
           .status(403)
